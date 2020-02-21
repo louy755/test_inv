@@ -1,0 +1,15 @@
+
+<div class='nested-fields'>
+  <div class='form-group'>
+    <%= form.hidden_field :_destroy %>
+    <%= form.text_field :qunt, class: 'form-control' %>
+    <%= form.text_field :item_type, placeholder: 'Add SOFA & loveseat & Chair', class: 'form-control' %>
+    <%= form.text_area :description, placeholder: 'Description', class: 'form-control' %>
+    <%= form.text_field :price, placeholder: '$ AddPrice', class: 'form-control' %>
+    <%= form.text_field :vendor, placeholder: 'Add Vendor', class: 'form-control' %>
+    <%= form.text_field :org_price, placeholder: 'Actual coast', class: 'form-control' %>
+    <small>
+      <%= link_to "Remove", "#", data: { action: "click->nested-form#remove_association" } %>
+    </small>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  qunt: 1
+  item_type: MyString
+  description: 
+  price: 9.99
+  org_price: 9.99
+  tax: 9.99
+  delivery: 9.99
+  profit: 9.99
+  person: one
+
+two:
+  qunt: 1
+  item_type: MyString
+  description: 
+  price: 9.99
+  org_price: 9.99
+  tax: 9.99
+  delivery: 9.99
+  profit: 9.99
+  person: two

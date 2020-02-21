@@ -1,0 +1,76 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @person.name %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @person.phone %>
+</p>
+<%= number_to_currency @person.sub_itms %> Sub total before Tax<br>
+<%= number_to_currency @person.discount %> Discount<br>
+<hr>
+<%= number_to_currency @person.sub_itms = @person.sub_itms - @person.discount %> Sub total before Tax After Discount<br>
+<%= number_to_currency @person.delivery_fee %> Delivery fee <br>
+<%= number_to_currency @person.sub_tax %> Tax<br>
+<%= number_to_currency @person.inv_tot %> Total Amount of Invoice<br>
+<hr>
+<%= number_to_currency @person.sub_itms %> Sub total before Tax  -<br>
+<%= number_to_currency @person.org_itms_price %> Orignal =<br>
+<%= number_to_currency @person.tot_profit %> Profit<br>
+<%= @person.profit_per  %> % Margin<br>
+
+
+</fieldset>
+
+<h3>Items</h3>
+<table class='table table-hover table-striped'>
+  <thead class='table-dark'>
+    <tr>
+      <th>QNTY</th>
+      <th>Item</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>Vendor</th>
+      <th>Sub Total</th>
+      <th>Tax</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @person.items.each do |item| %>
+      <tr>
+        <td><%= item.qunt %></td>
+        <td><%= item.item_type %></td>
+        <td><%=item.description %></td>
+        <td><%= number_to_currency item.price %></td>
+        <td><%=item.vendor %></td>
+        <td><%= number_to_currency item.sub_total = item.qunt * item.price %></td>
+        <td><%= number_to_currency item.tax = item.sub_total * 10.25 / 100 %></td>
+      </tr>
+  <% end %>
+
+
+  </tbody>
+</table>
+
+<%= number_to_currency sub_items %> Sub total<br>
+<%= number_to_currency @person.discount %> Discount<br>
+<%= number_to_currency sub_items - @person.discount %> Sub total<br>
+
+
+<%= number_to_currency @person.delivery_fee %> Delivery Fee<br>
+<%= number_to_currency @person.sub_tax  = tot_tax%> TAX<br>
+<hr>
+<%= number_to_currency @person.inv_tot = @person.delivery_fee + sub_tot %> Total due<br>
+
+<br>
+<hr>
+<%= number_to_currency  @person.sub_itms %> Sold for<br>
+<%= number_to_currency  @person.org_itms_price  %> Orignal coast<br>
+<%= number_to_currency  @person.tot_profit %> Total profit<br>
+<%= @person.profit_per %> % Margin<br>
+<%= link_to 'Edit', edit_person_path(@person) %> |
+<%= link_to 'Back', people_path %>
